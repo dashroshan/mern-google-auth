@@ -5,7 +5,14 @@ const router = express.Router();
 // To be used as the login button link
 router.get(
     "/login",
-    passport.authenticate("google", { scope: ["profile", "email"] })
+    passport.authenticate(
+        "google",
+        {
+            hd: "iiit-bh.ac.in",
+            prompt: "select_account",
+            scope: ["profile", "email"]
+        }
+    )
 );
 
 // Send get request to logout
