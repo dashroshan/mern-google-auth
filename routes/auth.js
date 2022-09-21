@@ -29,7 +29,9 @@ router.get(
 router.get(
     "/check",
     (req, res) => {
-        res.send({ isLoggedIn: req.isAuthenticated() });
+        let email = "none";
+        if (req.user) email = req.user.email;
+        res.send({ isLoggedIn: req.isAuthenticated(), email: email });
     }
 );
 
